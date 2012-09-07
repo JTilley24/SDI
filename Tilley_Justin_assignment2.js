@@ -4,7 +4,17 @@ var jumpName = ["small", "big", "double", "triple"];
 
 //procedure
 
+var decide = function(attempt) {
+	var attempt
+	if (attempt = true) {
+	console.log(name + " is going to attempt the jump!")
+	}
+	else {
+	console.log(name + " is having second thoughts!")
+	};
 
+};
+var jumpAttempt = decide(true) 
 
 //boolean
 
@@ -27,23 +37,26 @@ console.log( "It is " + tireStatus + " that " + name +
 //array
 
 var jump = function(jumpNumber, size) {
+	var jumpNumber,
+		size;
 	var feet = [5, 10, 15,];
 	for (jumpHeight= 0; jumpHeight < feet.length; jumpHeight++) {
 		console.log(name + " hits the " + jumpName[jumpNumber] + " jump and goes " + 
-			feet[jumpHeight] + size[1])
+			feet[jumpHeight] + size[1]);
 		};
-	var height = jumpNumber + feet[jumpNumber];
-	return height;
+	var height = (jumpNumber * 5)+ feet[jumpNumber];
+	return [height + size[1]];
+	
 };
 
 var jumpSize = jump(1, ['"', "'"]);
-console.log(jumpSize);
+console.log(name + " jumped for a total of " + jumpSize);
 
 //number
 
 var gear = function(throttle) {
 		var speed;
-		var jumpSpeed = jumpName.length * 1;
+		var jumpSpeed = throttle - jumpName.length;
 		while(jumpSpeed > 0) { 
 		console.log(name + " can make the jump!");	jumpSpeed--
 		};
