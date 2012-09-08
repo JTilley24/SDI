@@ -1,6 +1,7 @@
 //variables
 var name = "Mike";
 var jumpName = ["small", "big", "double", "triple"];
+var mile = 1/2;
 
 //procedure
 
@@ -14,25 +15,39 @@ var decide = function(attempt) {
 	};
 
 };
-var jumpAttempt = decide(true) 
 
-//boolean
+var jumpAttempt = decide(true); 
 
-var tire = function(tireSpin, tireCatch) {
-			var tireWipeout = false,
-				tireImpact; 
-			if ((tireSpin && tireCatch) || !tireWipeout) {
-				tireImpact = true
-			}
-			else {
-				tireImpact = false
-			};
-			return tireImpact;
+console.log("It is a " + mile + " mile stretch before the jump!");
+
+//string
+
+var thought = function(will, reason) {
+	var will,
+		reason;
+		
+	var innerThought = name + reason + '"You ' + will + " do this, " + name + '"';
+	
+	return innerThought;
 };
 
-var tireStatus = tire(true, true);
-console.log( "It is " + tireStatus + " that " + name + 
-			" gains control of the bike again.");
+var thoughtString = thought("can", " thinks ");
+
+console.log(thoughtString);
+
+//number
+
+var gear = function(throttle) {
+		var speed;
+		var jumpSpeed = throttle - jumpName.length;
+		while(jumpSpeed > 0) { 
+		console.log(name + " can make the jump!");	jumpSpeed--
+		};
+		speed = throttle * jumpName.length;
+		return speed;
+};
+
+var bikeSpeed = gear(5);
 
 //array
 
@@ -50,31 +65,28 @@ var jump = function(jumpNumber, size) {
 };
 
 var jumpSize = jump(1, ['"', "'"]);
-console.log(name + " jumped for a total of " + jumpSize);
 
-//number
+console.log(name + " jumped for a maximum of " + jumpSize);
 
-var gear = function(throttle) {
-		var speed;
-		var jumpSpeed = throttle - jumpName.length;
-		while(jumpSpeed > 0) { 
-		console.log(name + " can make the jump!");	jumpSpeed--
-		};
-		speed = throttle * jumpName.length;
-		return speed;
-};
-
-var bikeSpeed = gear(5);
 console.log(name + " makes the jump at " + bikeSpeed + " mph!");
 
-//string
+console.log(name + " begins to lose control of the bike.");
 
-var thought = function(will, reason) {
-	var will
-	var reason
-	var innerThought = name + reason + '"You ' + will + " do this, " + name + '"';
-	
-	return innerThought
+//boolean
+
+var tire = function(tireSpin, tireCatch) {
+			var tireWipeout = false,
+				tireImpact; 
+			if ((tireSpin && tireCatch) || !tireWipeout) {
+				tireImpact = true
+			}
+			else {
+				tireImpact = false
+			};
+			return tireImpact;
 };
-var thoughtString = thought("can", " thinks ");
-console.log(thoughtString)
+
+var tireStatus = tire(true, true);
+
+console.log( "It is " + tireStatus + " that " + name + 
+			" gains control of the bike again.");
