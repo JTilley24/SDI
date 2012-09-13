@@ -6,8 +6,8 @@ var mile = 1/2;
 //procedure
 
 var decide = function(attempt) {
-	var attempt
-	if (attempt = true) {
+	
+	if (attempt && true) {
 	console.log(name + " is going to attempt the jump!")
 	}
 	else {
@@ -16,16 +16,14 @@ var decide = function(attempt) {
 
 };
 
-var jumpAttempt = decide(true); 
+decide(true); 
 
 console.log("It is a " + mile + " mile stretch before the jump!");
 
 //string
 
 var thought = function(will, reason) {
-	var will,
-		reason;
-		
+	
 	var innerThought = name + reason + '"You ' + will + " do this, " + name + '"';
 	
 	return innerThought;
@@ -52,8 +50,7 @@ var bikeSpeed = gear(5);
 //array
 
 var jump = function(jumpNumber, size) {
-	var jumpNumber,
-		size;
+	
 	var feet = [5, 10, 15,];
 	for (jumpHeight= 0; jumpHeight < feet.length; jumpHeight++) {
 		console.log(name + " hits the " + jumpName[jumpNumber] + " jump and goes " + 
