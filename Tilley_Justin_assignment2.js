@@ -83,7 +83,8 @@ var tire = function(tireSpin, tireCatch) {
 			return tireImpact;
 };
 
-var tireStatus = tire(true, true);
+var tireStatus = 
+tire(true, true);
 
 console.log( "It is " + tireStatus + " that " + name + 
 			" gains control of the bike again.");
