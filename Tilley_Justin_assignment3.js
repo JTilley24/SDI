@@ -1,6 +1,7 @@
 //variables
 var name = "Mike"
-
+var mile = 1/2
+var bikesStroke = true
 //object
 var bikes = {
 	"brand": ["Yamaha ", 
@@ -10,15 +11,34 @@ var bikes = {
 	],
 	"engineSize": 250,
 	"type": "dirt bike",
-	"stroke": {
-	 "twoStroke": "two stroke",
-	 "fourStroke": "four stroke"
+	"stroke": function(bikesStroke) {
+	 	if(bikesStroke = true) {
+	 		console.log("The bike is a four stroke.")
+	 	}
+	 	else{
+	 		console.log("The bike is a two stroke.")
+	 	}
 	}
 };
 
+//boolean function
+var decide = function(jumpAttempt) {
+	if (jumpAttempt && true) {
+	console.log(name + " is going to attempt the jump!")
+	}
+	else {
+	console.log(name + " is having second thoughts!")
+	};
+};
+
+
+
 //outputs
 console.log(name + " has a " + bikes.brand[1] + bikes.type + ".");
-console.log ("It has a " + bikes.engineSize + "cc that is a " + bikes.stroke.twoStroke + ".");
+console.log ("It has a " + bikes.engineSize + "cc engine.");
+bikes.stroke()
+decide(true)
+
 
 //mutator
 var biketype = function (newBike) {
@@ -28,6 +48,7 @@ var biketype = function (newBike) {
 		var bike = bikes.brand[i];
 		console.log(bike);
 		i--
+		return bike;
 		};
 		
 };
@@ -43,6 +64,7 @@ var bigJump = function() {
 		
 };
 bigJump();
+
 //json
 var handleData = function (json) {
 		for(var i = 0; i < json.jumps.length; i++){
@@ -73,4 +95,4 @@ var bikeSpeed = function (throttle) {
 		};
 };
 var bigJumpspeed = bikeSpeed(5)
-console.log(bigJumpspeed.speed)
+console.log(bigJumpspeed.gear())
