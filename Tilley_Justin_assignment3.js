@@ -2,6 +2,7 @@
 var name = "Mike"
 var mile = 1/2
 var bikesStroke = true
+
 //object
 var bikes = {
 	"brand": ["Yamaha ", 
@@ -31,39 +32,39 @@ var decide = function(jumpAttempt) {
 	};
 };
 
-
+//mutator
+var biketype = function (newBike) {
+		bikes.brand.push(newBike)
+		var	i = 0;
+		while (i <= 4){ 
+		var bike = bikes.brand[i]
+		console.log(bike);
+		i++
+		};
+		
+};
 
 //outputs
-console.log(name + " has a " + bikes.brand[1] + bikes.type + ".");
+console.log(name + " can choose from the following bikes:")
+biketype("KTM ")
+console.log(name + " picks the " + bikes.brand[1] + bikes.type + ".");
 console.log ("It has a " + bikes.engineSize + "cc engine.");
 bikes.stroke()
 decide(true)
 
 
-//mutator
-var biketype = function (newBike) {
-		bikes.brand.push(newBike)
-		var	i = bikes.brand.length - 1
-		while (i >= 0){ 
-		var bike = bikes.brand[i];
-		console.log(bike);
-		i--
-		return bike;
-		};
-		
-};
-
-biketype("KTM ");
 
 //accessor
 var bigJump = function() {
 		var bigName = json2.jumps[1].name,
 			bigSize = json2.jumps[1].size;
 		bigHeight = bigSize - (json2.jumps.length);
-		console.log(name + " hits the " + bigName + " jump and reaches a height of " + bigHeight + " feet!" )
+		console.log(name + " hits the " + bigName + " jump and reaches a height of "
+					 + bigHeight + " feet!" )
+		return bigName;
+				
 		
 };
-bigJump();
 
 //json
 var handleData = function (json) {
@@ -78,9 +79,9 @@ handleData(json2);
 
 //object return
 
-var bikeSpeed = function (throttle) {
+var bikeSpeed = function (bikeThrottle) {
 		var getSpeed = function(){
-			var speed = throttle * json2.jumps.length;
+			var speed = bikeThrottle * json2.jumps.length;
 			return speed;
 		};
 		var getGear = function() {
@@ -89,10 +90,37 @@ var bikeSpeed = function (throttle) {
 		};
 		
 		return {
-		"throttle": throttle,
+		"throttle": (bikeThrottle / 10),
 		"speed": getSpeed,
 		"gear": getGear
 		};
 };
-var bigJumpspeed = bikeSpeed(5)
-console.log(bigJumpspeed.gear())
+
+var jumpSpeed = bikeSpeed(5)
+console.log(name + " needs to be in " + jumpSpeed.gear() + "th gear to make the jump!")
+console.log(name + " approaches the jump with " + jumpSpeed.throttle + " throttle at " + jumpSpeed.speed() + " mph.")
+bigJump() 
+
+
+
+var tire = function(tireSpin) {
+			var tireImpact = tireSpin[1]
+			if (tireImpact = true) {
+				console.log(name + " begins to lose control of the bike.")
+				if (tireSpin[0] > 5) {
+					tireCatch = true
+					console.log( "It is " + tireCatch + " that " + name + 
+			" gains control of the bike again.");
+				}
+				else{
+					console.log("The bike's tire spins out of control.")
+					tireCatch = false
+				}
+			}
+			else{
+				console.log(name + " lands safely.")
+			}
+			return tireCatch;
+};
+
+tire([10, true])
