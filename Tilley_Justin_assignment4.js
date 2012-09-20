@@ -3,6 +3,29 @@
 var lib = function() {
 	
 	
+	//Number decimal function
+	var money = function(val) {
+		return val.toFixed(2);
+	};
+	
+	//String separator function
+	var separate = function (val) {
+		return val.replace(/,/g, "/");
+	};
+	
+	
+	
+	
+	//Title-case string function
+	var title = function(val) {
+		var split = val.indexOf(" ")
+		
+		upperFirst = val.charAt(0).toUpperCase() + val.substring(1,split)
+		upperSecond = val.charAt(split+1).toUpperCase() + val.substring((split+2),val.lenth)
+		return upperFirst + " " + upperSecond;
+		
+	};
+	
 	
 	//URL string function
 	var url = function(val) {
@@ -50,7 +73,10 @@ var lib = function() {
 	return {
 		"phoneNumber" : phoneNumber,
 		"email" : email,
-		"url" : url
+		"url" : url,
+		"title" : title,
+		"separate" : separate,
+		"money" : money
 	};
 
 
@@ -63,4 +89,10 @@ var newLib = new lib()
 //console.log(newLib.email("prankster@yahoo.com"))
 
 //console.log(newLib.url("http://www.google.com/"))
+
+//console.log(newLib.title("justin tilley"))
+
+//console.log(newLib.separate("a,b,c"))
+
+//console.log(newLib.money(2.4))
 
