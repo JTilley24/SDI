@@ -1,7 +1,31 @@
-
+//Justin Tilley
+//SDI Term 1209
+//Project 4 
 
 var lib = function() {
 	
+	//Sort array of object by key function
+	var sort = function(array,key) {
+		return array.sort(
+			function(a, b) {
+				return a[key]-b[key];
+			}
+		);
+	};
+	
+	//Sum of numbers array function
+	var sum = function(array) {
+		var total = 0
+		var val;
+		for(var i = 0; i < array.length; i++) {
+			v = parseFloat(array[i])
+			if(!isNaN(v)) {
+				total += v
+
+			};		
+		};
+		return total;
+	};
 	
 	//Small Value array function
 	var small = function(array,val) {
@@ -13,6 +37,8 @@ var lib = function() {
 			}
 		}
 	};
+	
+	
 	//Return Value number function
 	var number = function (val) {
 		return parseInt(val);
@@ -129,7 +155,9 @@ var lib = function() {
 		"fuzzy" : fuzzy,
 		"date" : date,
 		"number" : number,
-		"small" : small
+		"small" : small,
+		"sum" : sum,
+		"sort" : sort
 	};
 
 
@@ -137,24 +165,30 @@ var lib = function() {
 
 var newLib = new lib()
 
-//console.log(newLib.phoneNumber("781-447-1773"))
+//Outputs
+console.log("The phone number is " + newLib.phoneNumber("781-447-1773"))
 
-//console.log(newLib.email("prankster@yahoo.com"))
+console.log("The email address is " + newLib.email("prankster@yahoo.com"))
 
-//console.log(newLib.url("http://www.google.com/"))
+console.log("The web url is " + newLib.url("http://www.google.com/"))
 
-//console.log(newLib.title("justin tilley"))
+console.log(newLib.title("justin tilley" + " is capitalized."))
 
-//console.log(newLib.separate("a,b,c","/"))
+console.log(newLib.separate("a,b,c","/"))
 
-//console.log(newLib.money(2.4))
+console.log("You have $" + newLib.money(2.4))
 
-//console.log(newLib.fuzzy(2.4,2,20))
+console.log("The numbers matching within the percent is " + newLib.fuzzy(2.4,2,20))
 
-//var newDate = newLib.date("June 20,1989 00:01:00","November 8,2011 04:15:00")
+var newDate = newLib.date("June 20,1989 00:01:00","November 8,2011 04:15:00")
 
-//console.log(newDate.days)
+console.log("Day : " + newDate.days + " Hours : " + newDate.hours)
 
-//console.log(newLib.number("42"))
+console.log("The number is " + newLib.number("42"))
 
-console.log(newLib.small([5,1,8,3],2))
+console.log(newLib.small([5,1,8,3],2) + " is the smallest value that is greater than 2.")
+
+console.log("The sum of the array is " + newLib.sum([2,6,9,2,"a",7]))
+
+console.log(newLib.sort([{a:2},{a:7},{a:5}],"a"))
+
