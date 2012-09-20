@@ -2,6 +2,23 @@
 
 var lib = function() {
 	
+	
+	//Small Value array function
+	var small = function(array,val) {
+		var min = array.sort()
+		minValue = min[0]
+		for(var i = 0; i < min.length; i++) {
+			if(min[i] > minValue && min[i] > val) {
+				return minValue = min[i];
+			}
+		}
+	};
+	//Return Value number function
+	var number = function (val) {
+		return parseInt(val);
+	};
+	
+	
 	//Dates number function
 	var date = function (firstDate,secondDate) {	
 		var firstdate = new Date(firstDate)
@@ -110,7 +127,9 @@ var lib = function() {
 		"separate" : separate,
 		"money" : money,
 		"fuzzy" : fuzzy,
-		"date" : date
+		"date" : date,
+		"number" : number,
+		"small" : small
 	};
 
 
@@ -132,5 +151,10 @@ var newLib = new lib()
 
 //console.log(newLib.fuzzy(2.4,2,20))
 
-console.log(newLib.date("June 20,1989 00:01:00","November 8,2011 04:15:00"))
+//var newDate = newLib.date("June 20,1989 00:01:00","November 8,2011 04:15:00")
 
+//console.log(newDate.days)
+
+//console.log(newLib.number("42"))
+
+console.log(newLib.small([5,1,8,3],2))
