@@ -2,24 +2,38 @@
 
 var lib = function() {
 	
+	//Fuzzy-match number function
+	var fuzzy = function (val,match,percent) {
+		var perc = (percent/100)
+		if(val <= ((match * perc)+match)) {
+			if(val >= (match - (match * perc))) {
+				return true;
+			} else {
+				return false;
+			}	
+		} else {
+			return false;
+		}
+	
+	};
 	
 	//Number decimal function
 	var money = function(val) {
 		return val.toFixed(2);
 	};
 	
+	
 	//String separator function
-	var separate = function (val) {
-		return val.replace(/,/g, "/");
+	var separate = function (val,separator) {
+		var separated = val.charAt(1)
+		var sep = new RegExp(separated,"g")
+		return val.replace(sep, separator);
 	};
-	
-	
 	
 	
 	//Title-case string function
 	var title = function(val) {
 		var split = val.indexOf(" ")
-		
 		upperFirst = val.charAt(0).toUpperCase() + val.substring(1,split)
 		upperSecond = val.charAt(split+1).toUpperCase() + val.substring((split+2),val.lenth)
 		return upperFirst + " " + upperSecond;
@@ -54,6 +68,7 @@ var lib = function() {
 		};
 	};
 	
+	
 	// Phone-Number string function
 	var phoneNumber = function (val) {
 		if(val.length == 12){
@@ -70,13 +85,15 @@ var lib = function() {
 		 return false
 		};
 	};
+	
 	return {
 		"phoneNumber" : phoneNumber,
 		"email" : email,
 		"url" : url,
 		"title" : title,
 		"separate" : separate,
-		"money" : money
+		"money" : money,
+		"fuzzy" : fuzzy
 	};
 
 
@@ -92,7 +109,9 @@ var newLib = new lib()
 
 //console.log(newLib.title("justin tilley"))
 
-//console.log(newLib.separate("a,b,c"))
+//console.log(newLib.separate("a,b,c","/"))
 
 //console.log(newLib.money(2.4))
+
+console.log(newLib.fuzzy(2.4,2,20))
 
