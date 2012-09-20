@@ -41,7 +41,7 @@ var biketype = function (newBike) {
 		console.log(bike);
 		i++
 		};
-		
+		return newBike;
 };
 
 //outputs and accessor
