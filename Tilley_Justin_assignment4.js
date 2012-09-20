@@ -2,11 +2,27 @@
 
 var lib = function() {
 	
+	//Dates number function
+	var date = function (firstDate,secondDate) {	
+		var firstdate = new Date(firstDate)
+		var seconddate = new Date(secondDate) 
+		var diff = seconddate.getTime() - firstdate.getTime()
+		var hours = Math.floor(diff/(1000*60*60))
+		var days = Math.floor(hours/24)
+		return {
+			"hours" : hours,
+			"days" : days
+		};
+	
+	
+	};
+	
+	
 	//Fuzzy-match number function
-	var fuzzy = function (val,match,percent) {
+	var fuzzy = function (number,match,percent) {
 		var perc = (percent/100)
-		if(val <= ((match * perc)+match)) {
-			if(val >= (match - (match * perc))) {
+		if(number <= ((match * perc)+match)) {
+			if(number >= (match - (match * perc))) {
 				return true;
 			} else {
 				return false;
@@ -93,7 +109,8 @@ var lib = function() {
 		"title" : title,
 		"separate" : separate,
 		"money" : money,
-		"fuzzy" : fuzzy
+		"fuzzy" : fuzzy,
+		"date" : date
 	};
 
 
@@ -113,5 +130,7 @@ var newLib = new lib()
 
 //console.log(newLib.money(2.4))
 
-console.log(newLib.fuzzy(2.4,2,20))
+//console.log(newLib.fuzzy(2.4,2,20))
+
+console.log(newLib.date("June 20,1989 00:01:00","November 8,2011 04:15:00"))
 
